@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Meta tags para SEO e responsividade -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CLARFE Studio – Serviços</title>
+    <meta name="description"
+        content="Serviços da CLARFE Studio – Estratégia, gestão e planejamento de marketing digital para resultados mensuráveis." />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./Favicon/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="./Favicon/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./Favicon/apple-touche-icon.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="./Favicon/favicon-96x96.png" />
+    <link rel="manifest" href="./Favicon/web-app-manifest-192x192.png" />
+
+    <!-- Definição das fontes (Helvetica) -->
+    <style>
+        @font-face {
+            font-family: "Helvetica";
+            src: url("./Fonts/Helvetica/Helvetica.ttf") format("truetype");
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: "Helvetica";
+            src: url("./Fonts/Helvetica-Oblique/Helvetica-Oblique.ttf") format("truetype");
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: "Helvetica";
+            src: url("./Fonts/Helvetica-Bold/Helvetica-Bold.ttf") format("truetype");
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: "Helvetica";
+            src: url("./Fonts/Helvetica-BoldOblique/Helvetica-BoldOblique.ttf") format("truetype");
+            font-weight: 700;
+            font-style: italic;
+        }
+    </style>
+
+    <!-- Estilos principais -->
+    <style>
+        /* === Reset e configurações gerais === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100vh;
+            font-family: "Helvetica", sans-serif;
+            background-color: #FFFFFF;
+            color: #1A1A1A;
+            overscroll-behavior: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Cursor personalizado (aplicado apenas em desktop) */
+        @media (min-width: 769px) {
+            body {
+                cursor: url("./iconecursor.cur"), auto;
+            }
+        }
+
+        /* === Container principal === */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* === Cabeçalho (logo, menu, instagram) === */
+        header {
+            width: 100%;
+            max-width: 1920px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        nav a.menu-item {
+            font-family: "Helvetica", sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #1A1A1A;
+            transition: color 0.2s ease-in-out;
+        }
+
+        nav a.menu-item.active {
+            color: rgba(0, 0, 0, 0.3);
+            /* cinza 30% */
+            cursor: default;
+        }
+
+        nav a.menu-item:not(.active):hover {
+            color: rgba(0, 0, 0, 0.7);
+            /* cinza 70% */
+        }
+
+        .social-icon img {
+            height: 24px;
+            width: 24px;
+        }
+
+        /* === Conteúdo serviços === */
+        main.content {
+            width: 100%;
+            max-width: 1200px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        /* Título "serviços" */
+        .content h1 {
+            font-family: "Helvetica", sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            text-transform: lowercase;
+            letter-spacing: -0.5px;
+        }
+
+        /* === Títulos de seções desktop === */
+        .title-spacer {
+            height: 1rem;
+            flex-shrink: 0;
+        }
+
+        .section {
+            display: flex;
+            gap: 4rem;
+            /* espaço horizontal entre título e texto */
+        }
+
+        .section .title-col {
+            flex-shrink: 0;
+            width: 120px;
+        }
+
+        .section .title-col h2 {
+            font-family: "Helvetica", sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            text-transform: lowercase;
+            letter-spacing: -0.5px;
+            margin-top: -1rem;
+            /* alinha a base do título com topo do texto */
+        }
+
+        .section .text-col {
+            flex: 1;
+            font-family: "Helvetica", sans-serif;
+            font-weight: 700;
+            /* bold */
+            font-size: 1rem;
+            line-height: 1.5rem;
+            text-align: justify;
+            letter-spacing: -0.5px;
+        }
+
+        .section .text-col p {
+            margin-bottom: 1rem;
+        }
+
+        .section .text-col p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Sessão desktop-only */
+        .desktop-only {
+            display: block;
+        }
+
+        .mobile-only {
+            display: none;
+        }
+
+        /* Grid de serviços (desktop) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem 4rem;
+            align-items: start;
+        }
+
+        .service-item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .service-item img {
+            width: 60px;
+            height: 60px;
+            transform-origin: center center;
+        }
+
+        .service-item .service-title {
+            font-family: "Helvetica", sans-serif;
+            font-weight: 700;
+            /* bold */
+            font-size: 1rem;
+            letter-spacing: -0.5px;
+            color: #1A1A1A;
+        }
+
+        .service-item .service-desc {
+            font-family: "Helvetica", sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            line-height: 1.4rem;
+            letter-spacing: -0.5px;
+            text-align: justify;
+        }
+
+        /* Animações de rotação variáveis (desktop) */
+        @keyframes rotate-10 {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes rotate-20 {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes rotate-30 {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .rotate-10 {
+            animation: rotate-10 10s linear infinite;
+        }
+
+        .rotate-20 {
+            animation: rotate-20 20s linear infinite;
+        }
+
+        .rotate-30 {
+            animation: rotate-30 30s linear infinite;
+        }
+
+        /* Sessão "gestão estratégica" desktop */
+        .management {
+            display: flex;
+            gap: 4rem;
+        }
+
+        .management .title-col {
+            flex-shrink: 0;
+            width: 120px;
+        }
+
+        .management .title-col h2 {
+            font-family: "Helvetica", sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            text-transform: lowercase;
+            letter-spacing: -0.5px;
+            margin-top: -1rem;
+            /* alinha base do título com topo do texto */
+        }
+
+        .management .text-col {
+            flex: 1;
+            font-family: "Helvetica", sans-serif;
+            font-weight: 700;
+            /* bold */
+            font-size: 1rem;
+            line-height: 1.5rem;
+            text-align: justify;
+            letter-spacing: -0.5px;
+        }
+
+        .management .text-col p {
+            margin-bottom: 1rem;
+        }
+
+        .management .text-col p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* === Mobile === */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem 1.5rem;
+            }
+
+            nav {
+                margin-top: 1rem;
+                gap: 1.5rem;
+            }
+
+            main.content {
+                padding: 1.5rem;
+                gap: 2rem;
+            }
+
+            .content h1 {
+                font-size: 1.75rem;
+            }
+
+            /* No mobile, mostrar apenas mobile-only */
+            .desktop-only {
+                display: none;
+            }
+
+            .mobile-only {
+                display: block;
+            }
+
+            /* Asterisco móvel preto, girando em 30s */
+            .mobile-asterisk {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 1rem;
+                animation: rotate-mobile 30s linear infinite;
+            }
+
+            @keyframes rotate-mobile {
+                from {
+                    transform: rotate(0deg);
+                }
+
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            /* Seção mobile "estratégia" */
+            .mobile-strategy .subtitle-mobile {
+                font-family: "Helvetica", sans-serif;
+                font-weight: 700;
+                /* bold */
+                font-size: 1.125rem;
+                letter-spacing: -0.5px;
+                margin-bottom: 0.75rem;
+                color: #1A1A1A;
+            }
+
+            .mobile-strategy .strategy-text-mobile {
+                font-family: "Helvetica", sans-serif;
+                font-weight: 700;
+                /* bold */
+                font-size: 0.975rem;
+                line-height: 1.4rem;
+                text-align: justify;
+                letter-spacing: -0.5px;
+                margin-bottom: 1.5rem;
+            }
+
+            /* Subtítulos móveis coloridos e em bold */
+            .mobile-list .item-title {
+                font-family: "Helvetica", sans-serif;
+                font-weight: 700;
+                /* bold */
+                font-size: 1rem;
+                letter-spacing: -0.5px;
+                margin-bottom: 0.25rem;
+            }
+
+            .mobile-list .item-desc {
+                font-family: "Helvetica", sans-serif;
+                font-weight: 400;
+                font-size: 0.9rem;
+                line-height: 1.4rem;
+                letter-spacing: -0.5px;
+                text-align: justify;
+            }
+
+            /* Seção mobile "gestão estratégica" */
+            .mobile-management .subtitle-mobile {
+                font-family: "Helvetica", sans-serif;
+                font-weight: 700;
+                /* bold */
+                font-size: 1.125rem;
+                letter-spacing: -0.5px;
+                margin-bottom: 0.75rem;
+                color: #1A1A1A;
+            }
+
+            .mobile-management .management-text-mobile {
+                font-family: "Helvetica", sans-serif;
+                font-weight: 700;
+                /* bold */
+                font-size: 0.975rem;
+                line-height: 1.4rem;
+                text-align: justify;
+                letter-spacing: -0.5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header>
+            <div class="logo">
+                <a href="./index.html"><img src="./CLARFEStudio_Logotipo.svg" alt="Logo CLARFE" /></a>
+            </div>
+            <nav>
+                <a href="./sobre.html" class="menu-item">sobre</a>
+                <a href="./serviços.html" class="menu-item active">serviços</a>
+                <a href="./contato.html" class="menu-item">contato</a>
+            </nav>
+            <div class="social-icon">
+                <a href="https://www.instagram.com/clarfestudio/" target="_blank" rel="noopener">
+                    <img src="./instagram.svg" alt="Instagram CLARFE" />
+                </a>
+            </div>
+        </header>
+
+        <!-- Conteúdo principal -->
+        <main class="content">
+            <!-- Título da sessão -->
+            <h1>serviços</h1>
+
+            <!-- Seção "estratégia" Desktop -->
+            <div class="management desktop-only">
+                <div class="title-col">
+                    <div class="title-spacer"></div>
+                    <h2>estratégia</h2>
+                </div>
+                <div class="text-col">
+                    <p>
+                        A estratégia é o diagnóstico essencial que antecede qualquer ação digital. Na Clarfe mapeamos
+                        todos os
+                        aspectos do seu negócio — identidade, operação, cultura, público e canais — para definir com
+                        precisão o
+                        posicionamento da sua marca e quais ações são de fato eficazes para gerar resultados
+                        mensuráveis.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Seção "estratégia" Mobile -->
+            <div class="mobile-only mobile-strategy">
+                <div class="subtitle-mobile">estratégia</div>
+                <div class="strategy-text-mobile">
+                    A estratégia é o diagnóstico essencial que antecede qualquer ação digital. Na Clarfe mapeamos todos
+                    os
+                    aspectos do seu negócio — identidade, operação, cultura, público e canais — para definir com
+                    precisão o
+                    posicionamento da sua marca e quais ações são de fato eficazes para gerar resultados mensuráveis.
+                </div>
+            </div>
+
+            <!-- Conteúdo desktop -->
+            <div class="desktop-only">
+                <!-- Grid de serviços -->
+                <div class="services-grid">
+                    <!-- DNA -->
+                    <div class="service-item">
+                        <img src="./iconeclarfe/asterisco-blue.svg" class="rotate-10" alt="Asterisco DNA Azul" />
+                        <div class="service-title">DNA</div>
+                        <div class="service-desc">
+                            Definimos seu objetivo central, metas e valores essenciais — o elemento central que norteará
+                            todas as
+                            decisões.
+                        </div>
+                    </div>
+                    <!-- Personalidade -->
+                    <div class="service-item">
+                        <img src="./iconeclarfe/asterisco-purple.svg" class="rotate-20"
+                            alt="Asterisco Personalidade Roxo" />
+                        <div class="service-title">Personalidade</div>
+                        <div class="service-desc">
+                            Moldamos sua voz, estética e tom de comunicação para refletir sua essência com coerência em
+                            todos os
+                            canais.
+                        </div>
+                    </div>
+                    <!-- Concorrência -->
+                    <div class="service-item">
+                        <img src="./iconeclarfe/asterisco-red.svg" class="rotate-30"
+                            alt="Asterisco Concorrência Vermelho" />
+                        <div class="service-title">Concorrência</div>
+                        <div class="service-desc">
+                            Mapeamos concorrentes diretos e indiretos, identificando oportunidades e referências para
+                            posicionamento
+                            único.
+                        </div>
+                    </div>
+                    <!-- Persona -->
+                    <div class="service-item">
+                        <img src="./iconeclarfe/asterisco-green.svg" class="rotate-10" alt="Asterisco Persona Verde" />
+                        <div class="service-title">Persona</div>
+                        <div class="service-desc">
+                            Criamos o retrato do cliente ideal que consome seu produto exatamente como sua marca
+                            comunica — além do
+                            público-alvo genérico.
+                        </div>
+                    </div>
+                    <!-- Comunicação -->
+                    <div class="service-item">
+                        <img src="./iconeclarfe/asterisco-pink.svg" class="rotate-20"
+                            alt="Asterisco Comunicação Rosa" />
+                        <div class="service-title">Comunicação</div>
+                        <div class="service-desc">
+                            Selecionamos palavras-chave e elementos que otimizam sua visibilidade, garantindo que seu
+                            negócio seja
+                            encontrado pelo consumidor certo.
+                        </div>
+                    </div>
+                    <!-- Conteúdo -->
+                    <div class="service-item">
+                        <img src="./iconeclarfe/asterisco-orange.svg" class="rotate-30"
+                            alt="Asterisco Conteúdo Laranja" />
+                        <div class="service-title">Conteúdo</div>
+                        <div class="service-desc">
+                            Elaboramos formatos (vídeos, artigos, campanhas) baseados no diagnóstico — cada peça resolve
+                            uma dor
+                            específica da jornada de compra.
+                        </div>
+                    </div>
+                    <!-- Cronograma -->
+                    <div class="service-item">
+                        <img src="./iconeclarfe/asterisco-yellow.svg" class="rotate-10"
+                            alt="Asterisco Cronograma Amarelo" />
+                        <div class="service-title">Cronograma</div>
+                        <div class="service-desc">
+                            Estruturamos a agenda de postagens para redes sociais, alinhando frequência e plataformas ao
+                            comportamento
+                            da persona.
+                        </div>
+                    </div>
+                    <!-- Relatório -->
+                    <div class="service-item">
+                        <img src="./iconeclarfe/asterisco-gray.svg" class="rotate-20" alt="Asterisco Relatório Cinza" />
+                        <div class="service-title">Relatório</div>
+                        <div class="service-desc">
+                            Mensuramos avanços mensais através de métricas concretas, transformando dados em ajustes
+                            estratégicos
+                            imediatos.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conteúdo mobile -->
+            <div class="mobile-only">
+                <img src="./iconeclarfe/asterisco-black.svg" class="mobile-asterisk" alt="Asterisco rotativo" />
+                <div class="mobile-list">
+                    <div>
+                        <div class="item-title" style="color: #2563eb;">DNA</div>
+                        <div class="item-desc">
+                            Definimos seu objetivo central, metas e valores essenciais — o elemento central que norteará
+                            todas as
+                            decisões.
+                        </div>
+                    </div>
+                    <div>
+                        <div class="item-title" style="color: #a855f7;">Personalidade</div>
+                        <div class="item-desc">
+                            Moldamos sua voz, estética e tom de comunicação para refletir sua essência com coerência em
+                            todos os
+                            canais.
+                        </div>
+                    </div>
+                    <div>
+                        <div class="item-title" style="color: #dc2626;">Concorrência</div>
+                        <div class="item-desc">
+                            Mapeamos concorrentes diretos e indiretos, identificando oportunidades e referências para
+                            posicionamento
+                            único.
+                        </div>
+                    </div>
+                    <div>
+                        <div class="item-title" style="color: #10b981;">Persona</div>
+                        <div class="item-desc">
+                            Criamos o retrato do cliente ideal que consome seu produto exatamente como sua marca
+                            comunica — além do
+                            público-alvo genérico.
+                        </div>
+                    </div>
+                    <div>
+                        <div class="item-title" style="color: #ec4899;">Comunicação</div>
+                        <div class="item-desc">
+                            Selecionamos palavras-chave e elementos que otimizam sua visibilidade, garantindo que seu
+                            negócio seja
+                            encontrado pelo consumidor certo.
+                        </div>
+                    </div>
+                    <div>
+                        <div class="item-title" style="color: #f97316;">Conteúdo</div>
+                        <div class="item-desc">
+                            Elaboramos formatos (vídeos, artigos, campanhas) baseados no diagnóstico — cada peça resolve
+                            uma dor
+                            específica da jornada de compra.
+                        </div>
+                    </div>
+                    <div>
+                        <div class="item-title" style="color: #facc15;">Cronograma</div>
+                        <div class="item-desc">
+                            Estruturamos a agenda de postagens para redes sociais, alinhando frequência e plataformas ao
+                            comportamento
+                            da persona.
+                        </div>
+                    </div>
+                    <div>
+                        <div class="item-title" style="color: #9ca3af;">Relatório</div>
+                        <div class="item-desc">
+                            Mensuramos avanços mensais através de métricas concretas, transformando dados em ajustes
+                            estratégicos
+                            imediatos.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div></div>
+            <!-- Seção "gestão estratégica" Desktop -->
+            <div class="management desktop-only">
+                <div class="title-col">
+                    <div class="title-spacer"></div>
+                    <h2>gestão estratégica</h2>
+                </div>
+                <div class="text-col">
+                    <p>
+                        Sabemos que uma estratégia brilhante exige operação impecável. Este serviço é o
+                        sistema
+                        central do seu marketing digital: monitoramos cada ação mediante rastreamento de métricas em
+                        tempo real e
+                        auditorias de coerência de voz, garantindo alinhamento absoluto com seus objetivos primários.
+                        Esse
+                        gerenciamento contínuo evita desvios e assegura que sua marca mantenha a rota traçada mesmo em
+                        meio a
+                        mudanças de mercados.
+                    </p>
+                    <p>
+                        Transformamos dados em decisões proativas através de controle rigoroso de métricas, gestão de
+                        riscos com
+                        planos de contingência para cenários imprevistos, revisão periódica de alinhamento criativo e
+                        pivotagem
+                        ágil de campanhas baseada em comportamento do consumidor. O resultado é um ecossistema digital
+                        autorregulado que reduz desperdícios direcionando investimentos apenas para o que funciona,
+                        enquanto
+                        adaptamos sua presença online a novas tendências.
+                    </p>
+                </div>
+            </div>
+            <div></div>
+            <div></div>
+            <div></div>
+
+            <!-- Seção "gestão estratégica" Mobile -->
+            <div class="mobile-only mobile-management">
+                <div class="subtitle-mobile">gestão estratégica</div>
+                <div class="management-text-mobile">
+                    Sabemos que uma estratégia brilhante exige operação impecável. Este serviço é o
+                    sistema
+                    central do seu marketing digital: monitoramos cada ação mediante rastreamento de métricas em tempo
+                    real e
+                    auditorias de coerência de voz, garantindo alinhamento absoluto com seus objetivos primários. Esse
+                    gerenciamento contínuo evita desvios e assegura que sua marca mantenha a rota traçada mesmo em meio
+                    a
+                    mudanças de mercados.
+
+                    <br /><br />
+
+                    Transformamos dados em decisões proativas através de controle rigoroso de métricas, gestão de riscos
+                    com
+                    planos de contingência para cenários imprevistos, revisão periódica de alinhamento criativo e
+                    pivotagem
+                    ágil de campanhas baseada em comportamento do consumidor. O resultado é um ecossistema digital
+                    autorregulado que reduz desperdícios direcionando investimentos apenas para o que funciona, enquanto
+                    adaptamos sua presença online a novas tendências.
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

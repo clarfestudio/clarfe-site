@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Meta tags para SEO e responsividade -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CLARFE Studio – Sobre</title>
+    <meta name="description"
+        content="Sobre a CLARFE Studio – Agência de Marketing Digital: estratégia, conteúdo e performance para marcas que desejam autoridade, influência e conversão." />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./Favicon/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="./Favicon/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./Favicon/apple-touche-icon.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="./Favicon/favicon-96x96.png" />
+    <link rel="manifest" href="./Favicon/web-app-manifest-192x192.png" />
+
+    <!-- Definição das fontes (Helvetica) -->
+    <style>
+        @font-face {
+            font-family: "Helvetica";
+            src: url("./Fonts/Helvetica/Helvetica.ttf") format("truetype");
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: "Helvetica";
+            src: url("./Fonts/Helvetica-Oblique/Helvetica-Oblique.ttf") format("truetype");
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: "Helvetica";
+            src: url("./Fonts/Helvetica-Bold/Helvetica-Bold.ttf") format("truetype");
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: "Helvetica";
+            src: url("./Fonts/Helvetica-BoldOblique/Helvetica-BoldOblique.ttf") format("truetype");
+            font-weight: 700;
+            font-style: italic;
+        }
+    </style>
+
+    <!-- Estilos principais -->
+    <style>
+        /* === Reset e configurações gerais === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100vh;
+            font-family: "Helvetica", sans-serif;
+            background-color: #FFFFFF;
+            color: #1A1A1A;
+            overscroll-behavior: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Cursor personalizado (aplicado apenas em desktop) */
+        @media (min-width: 769px) {
+            body {
+                cursor: url("./iconecursor.cur"), auto;
+            }
+        }
+
+        /* === Container principal === */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* === Cabeçalho (logo, menu, instagram) === */
+        header {
+            width: 100%;
+            max-width: 1920px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+        }
+
+        /* Logo CLARFE – canto superior esquerdo */
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo a {
+            display: inline-block;
+        }
+
+        /* Menu de navegação – desktop e mobile */
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        nav a.menu-item {
+            font-family: "Helvetica", sans-serif;
+            font-weight: 700;
+            /* Helvetica Bold */
+            font-size: 1rem;
+            color: #1A1A1A;
+            transition: color 0.2s ease-in-out;
+        }
+
+        /* Estado ativo (página sobre) */
+        nav a.menu-item.active {
+            color: rgba(0, 0, 0, 0.3);
+            /* cinza 30% */
+            cursor: default;
+        }
+
+        /* Hover apenas em itens não ativos */
+        nav a.menu-item:not(.active):hover {
+            color: rgba(0, 0, 0, 0.7);
+            /* cinza 70% */
+        }
+
+        /* Ícone Instagram – canto superior direito */
+        .social-icon img {
+            height: 24px;
+            width: 24px;
+        }
+
+        /* === Conteúdo principal (Sobre) === */
+        main.content {
+            width: 100%;
+            max-width: 1200px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        /* Seção inicial com título e parágrafos */
+        .intro {
+            display: flex;
+            gap: 4rem;
+            /* maior espaço horizontal entre título e texto */
+        }
+
+        /* Espaçador acima do H1 para alinhar a parte inferior do título com o topo do texto */
+        .title-spacer {
+            height: 1rem;
+            flex-shrink: 0;
+        }
+
+        .intro h1 {
+            font-family: "Helvetica", sans-serif;
+            font-weight: 700;
+            /* Bold */
+            font-size: 2rem;
+            text-transform: lowercase;
+            /* "sobre" em caixa baixa */
+            flex-shrink: 0;
+            width: 120px;
+            letter-spacing: -0.5px;
+            /* espaçamento negativo entre letras */
+            margin-top: -1rem;
+            /* puxa o título para baixo compensando o spacer */
+        }
+
+        /* Coluna direita que contém texto e nota */
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* Bloco de texto ajustável (peso bold) */
+        .text-blocks {
+            font-family: "Helvetica", sans-serif;
+            font-weight: 700;
+            /* bold */
+            font-size: 1rem;
+            line-height: 1.5rem;
+            letter-spacing: -0.5px;
+            /* espaçamento negativo entre letras */
+        }
+
+        .text-blocks p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .text-blocks p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Destaques dentro do texto */
+        .text-blocks p strong {
+            font-weight: 700;
+            /* peso bold para “Clarfe” */
+            text-transform: none;
+            /* sem transformação adicional */
+            letter-spacing: normal;
+        }
+
+        .text-blocks p em {
+            font-style: normal;
+            /* sem itálico */
+            letter-spacing: normal;
+        }
+
+        /* Seção da nota com asterisco rotativo e texto normal (regular) */
+        .note-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+            font-family: "Helvetica", sans-serif;
+            font-weight: 400;
+            /* peso regular para a nota */
+            font-size: 0.9rem;
+            line-height: 1.4rem;
+            letter-spacing: -0.5px;
+            /* espaçamento negativo */
+        }
+
+        .note-section .asterisk-rotate {
+            width: 40px;
+            height: 40px;
+            animation: rotate-slow 30s linear infinite;
+        }
+
+        .note-section .note {
+            font-style: normal;
+            /* sem itálico */
+            text-align: justify;
+            color: #1A1A1A;
+            max-width: 800px;
+            letter-spacing: -0.5px;
+            /* espaçamento negativo */
+        }
+
+        /* Animação de rotação lenta */
+        @keyframes rotate-slow {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* === Responsividade === */
+        /* Mobile (até 768px) */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem 1.5rem;
+            }
+
+            nav {
+                margin-top: 1rem;
+                gap: 1.5rem;
+            }
+
+            main.content {
+                padding: 1.5rem;
+                gap: 2rem;
+            }
+
+            .intro {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            /* Remover margem superior do H1 no mobile e ajustar tamanho */
+            .intro h1 {
+                font-size: 1.75rem;
+                width: auto;
+                letter-spacing: -0.5px;
+                margin-top: 0;
+                /* elimina o pull-down trazido por -1rem no desktop */
+            }
+
+            .right-column {
+                gap: 1rem;
+            }
+
+            .text-blocks {
+                font-size: 0.975rem;
+                line-height: 1.4rem;
+                letter-spacing: -0.5px;
+            }
+
+            /* Em mobile, nota e texto ocupam largura total do container */
+            .note-section {
+                margin-left: 0;
+            }
+
+            .note-section .asterisk-rotate {
+                width: 36px;
+                height: 36px;
+            }
+
+            .note-section .note {
+                font-size: 0.85rem;
+                line-height: 1.3rem;
+                letter-spacing: -0.5px;
+            }
+        }
+
+        /* Tablet e Desktop (a partir de 769px) */
+        @media (min-width: 769px) {
+            .intro {
+                flex-direction: row;
+            }
+
+            .intro h1 {
+                font-size: 2rem;
+                letter-spacing: -0.5px;
+            }
+
+            .right-column {
+                gap: 1.5rem;
+            }
+
+            .text-blocks {
+                font-size: 1rem;
+                line-height: 1.5rem;
+                letter-spacing: -0.5px;
+            }
+
+            .note-section .asterisk-rotate {
+                width: 40px;
+                height: 40px;
+            }
+
+            .note-section .note {
+                font-size: 0.9rem;
+                line-height: 1.4rem;
+                letter-spacing: -0.5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header>
+            <!-- Logo CLARFE (clicável para volta à home) -->
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./CLARFEStudio_Logotipo.svg" alt="Logo CLARFE" />
+                </a>
+            </div>
+
+            <!-- Navegação -->
+            <nav>
+                <a href="./sobre.html" class="menu-item active">sobre</a>
+                <a href="./serviços.html" class="menu-item">serviços</a>
+                <a href="./contato.html" class="menu-item">contato</a>
+            </nav>
+
+            <!-- Instagram -->
+            <div class="social-icon">
+                <a href="https://www.instagram.com/clarfestudio/" target="_blank" rel="noopener">
+                    <img src="./instagram.svg" alt="Instagram CLARFE" />
+                </a>
+            </div>
+        </header>
+
+        <!-- Conteúdo principal -->
+        <main class="content">
+            <!-- Seção de introdução com título e parágrafos -->
+            <div class="intro">
+                <!-- Spacer para “quebrar linha” antes de posicionar o H1 -->
+                <div class="title-spacer"></div>
+                <h1>sobre</h1>
+                <div class="right-column">
+                    <div class="text-blocks">
+                        <p>
+                            A <strong>Clarfe</strong> é uma agência de marketing digital especializada em estratégia,
+                            criação de
+                            conteúdo e performance online. Nossa missão é consolidar sua marca e guiar seu público – de
+                            forma
+                            orgânica e relevante – do primeiro interesse até a decisão de consumo e fidelização.
+                        </p>
+                        <p>
+                            Atuamos com uma metodologia centrada em <em>Inbound Marketing</em>*, aliada às melhores
+                            práticas
+                            tradicionais. Esse modelo é perfeito para o cenário digital por alinhar-se à mecânica das
+                            plataformas
+                            online, racionalizando cada ação e entregando eficiência desde o primeiro momento — mantendo
+                            o foco no
+                            objetivo principal: gerar resultados financeiros, comerciais e de posicionamento.
+                        </p>
+                    </div>
+
+                    <!-- Seção da nota complementar, alinhada ao texto -->
+                    <div class="note-section">
+                        <!-- Asterisco rotativo -->
+                        <img src="./iconeclarfe.svg" class="asterisk-rotate" alt="Asterisco rotativo CLARFE" />
+                        <!-- Texto da nota em peso regular (sem itálico) -->
+                        <p class="note">
+                            O Inbound Marketing atua em toda a jornada de compra: atrai seu público ideal com conteúdos
+                            baseados em
+                            análise de comportamento, engaja através de soluções personalizadas e encanta convertendo
+                            clientes em
+                            promotores. Além de conexões autênticas, oferece eficiência financeira: custos reduzidos na
+                            captação e
+                            revenda mais econômica para fidelizados que já conhecem seu valor e demandam menos
+                            investimento.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

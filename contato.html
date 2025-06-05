@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Meta tags para SEO e responsividade -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CLARFE Studio – Contato</title>
+    <meta name="description"
+        content="Contato CLARFE Studio – Entre em contato conosco preenchendo o formulário e receba atendimento personalizado." />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./Favicon/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="./Favicon/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./Favicon/apple-touche-icon.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="./Favicon/favicon-96x96.png" />
+    <link rel="manifest" href="./Favicon/web-app-manifest-192x192.png" />
+
+    <!-- Definição das fontes (Helvetica) -->
+    <style>
+        @font-face {
+            font-family: "Helvetica";
+            src: url("./Fonts/Helvetica/Helvetica.ttf") format("truetype");
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: "Helvetica";
+            src: url("./Fonts/Helvetica-Oblique/Helvetica-Oblique.ttf") format("truetype");
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: "Helvetica";
+            src: url("./Fonts/Helvetica-Bold/Helvetica-Bold.ttf") format("truetype");
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: "Helvetica";
+            src: url("./Fonts/Helvetica-BoldOblique/Helvetica-BoldOblique.ttf") format("truetype");
+            font-weight: 700;
+            font-style: italic;
+        }
+    </style>
+
+    <!-- Estilos principais -->
+    <style>
+        /* === Reset e configurações gerais === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100vh;
+            font-family: "Helvetica", sans-serif;
+            background-color: #FFFFFF;
+            color: #1A1A1A;
+            overscroll-behavior: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Cursor personalizado (aplicado apenas em desktop) */
+        @media (min-width: 769px) {
+            body {
+                cursor: url("./iconecursor.cur"), auto;
+            }
+        }
+
+        /* === Container principal === */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* === Cabeçalho (logo, menu, instagram) === */
+        header {
+            width: 100%;
+            max-width: 1920px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        nav a.menu-item {
+            font-family: "Helvetica", sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #1A1A1A;
+            transition: color 0.2s ease-in-out;
+        }
+
+        nav a.menu-item.active {
+            color: rgba(0, 0, 0, 0.3);
+            /* cinza 30% */
+            cursor: default;
+        }
+
+        nav a.menu-item:not(.active):hover {
+            color: rgba(0, 0, 0, 0.7);
+            /* cinza 70% */
+        }
+
+        .social-icon img {
+            height: 24px;
+            width: 24px;
+        }
+
+        /* === Conteúdo contato === */
+        main.content {
+            width: 100%;
+            max-width: 1200px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        /* Título "contato" */
+        .content h1 {
+            font-family: "Helvetica", sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            text-transform: lowercase;
+            letter-spacing: -0.5px;
+        }
+
+        /* Estrutura de seção com espaçamento negativo e alinhamento */
+        .section {
+            display: flex;
+            gap: 4rem;
+            /* espaço horizontal entre título e conteúdo */
+        }
+
+        .title-col {
+            flex-shrink: 0;
+            width: 120px;
+        }
+
+        .title-col .title-spacer {
+            height: 1rem;
+            flex-shrink: 0;
+        }
+
+        .title-col h2 {
+            font-family: "Helvetica", sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            text-transform: lowercase;
+            letter-spacing: -0.5px;
+            margin-top: -1rem;
+            /* alinha a base do título com topo do conteúdo */
+        }
+
+        .form-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* Mensagem de erro (gerada pelo próprio JS de validação; oculta por padrão) */
+        .error-message {
+            font-family: "Helvetica", sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #dc2626;
+            /* vermelho */
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        /* Formulário (desktop e mobile usam o mesmo markup, mas responsividade ajusta) */
+        form#contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* Rótulo dos campos (bold) */
+        form label {
+            font-family: "Helvetica", sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: -0.5px;
+            color: #1A1A1A;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Inputs e textarea */
+        form input[type="text"],
+        form input[type="email"],
+        form textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-family: "Helvetica", sans-serif;
+            font-weight: 400;
+            font-size: 1rem;
+            letter-spacing: -0.5px;
+            color: #1A1A1A;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        form input::placeholder,
+        form textarea::placeholder {
+            color: rgba(0, 0, 0, 0.3);
+            /* cinza 30% */
+            font-weight: 400;
+            letter-spacing: -0.5px;
+        }
+
+        form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Campos lado a lado para desktop */
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        /* Checkbox area */
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            font-family: "Helvetica", sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: -0.5px;
+            color: #1A1A1A;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            color: #1A1A1A;
+        }
+
+        /* Link “proteção de dados” direciona para protecaodedados.html */
+        .checkbox-group a {
+            color: inherit;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        /* Botão “enviar” */
+        #submit-btn {
+            font-family: "Helvetica", sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: -0.5px;
+            color: #1A1A1A;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            align-self: flex-start;
+            transition: color 0.2s ease-in-out;
+            margin-top: 1.5rem;
+        }
+
+        #submit-btn:hover {
+            color: rgba(0, 0, 0, 0.3);
+            /* cinza 30% */
+        }
+
+        /* Mensagem de sucesso */
+        .success-message {
+            font-family: "Helvetica", sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: -0.5px;
+            color: #10b981;
+            /* verde */
+            display: none;
+        }
+
+        /* Sessão desktop/mobile */
+        .desktop-only {
+            display: block;
+        }
+
+        .mobile-only {
+            display: none;
+        }
+
+        /* === Responsividade === */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem 1.5rem;
+            }
+
+            nav {
+                margin-top: 1rem;
+                gap: 1.5rem;
+            }
+
+            main.content {
+                padding: 1.5rem;
+                gap: 2rem;
+            }
+
+            .content h1 {
+                font-size: 1.75rem;
+            }
+
+            /* Mostrar apenas versão mobile */
+            .desktop-only {
+                display: none;
+            }
+
+            .mobile-only {
+                display: block;
+            }
+
+            /* Campos mobile empilhados */
+            .two-columns {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            form input[type="text"],
+            form input[type="email"],
+            form textarea {
+                font-size: 0.975rem;
+            }
+
+            form label {
+                font-size: 1rem;
+            }
+
+            .checkbox-group label {
+                font-size: 1rem;
+            }
+
+            #submit-btn {
+                font-size: 1rem;
+            }
+
+            .error-message {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header>
+            <div class="logo">
+                <a href="./index.html"><img src="./CLARFEStudio_Logotipo.svg" alt="Logo CLARFE" /></a>
+            </div>
+            <nav>
+                <a href="./sobre.html" class="menu-item">sobre</a>
+                <a href="./serviços.html" class="menu-item">serviços</a>
+                <a href="./contato.html" class="menu-item active">contato</a>
+            </nav>
+            <div class="social-icon">
+                <a href="https://www.instagram.com/clarfestudio/" target="_blank" rel="noopener">
+                    <img src="./instagram.svg" alt="Instagram CLARFE" />
+                </a>
+            </div>
+        </header>
+
+        <!-- Conteúdo principal -->
+        <main class="content">
+            <!-- Título da sessão -->
+            <h1>contato</h1>
+
+            <!-- Seção FORMULÁRIO Desktop -->
+            <div class="section desktop-only">
+                <div class="title-col">
+                    <div class="title-spacer"></div>
+                </div>
+                <div class="form-col">
+                    <!-- Mensagem de erro (oculta por padrão) -->
+                    <div id="error-message" class="error-message">
+                        Preenchimento de todos os campos é obrigatório e termos devem ser aceitos.
+                    </div>
+
+                    <!-- Formulário apontando para Formsubmit.co -->
+                    <form id="contact-form" action="https://formsubmit.co/contato.clarfe@gmail.com" method="POST"
+                        novalidate>
+                        <!-- Personalização do e-mail que você receberá -->
+                        <input type="hidden" name="_subject" value="Novo lead via site CLARFE" />
+                        <!-- Se quiser usar reCAPTCHA do Formsubmit, deixe _captcha como "true" -->
+                        <!-- <input type="hidden" name="_captcha" value="true" /> -->
+
+                        <!-- Nome Completo -->
+                        <div>
+                            <label for="full-name">nome completo:</label>
+                            <input type="text" id="full-name" name="fullName" placeholder="nome e sobrenome" required
+                                autocomplete="name" />
+                        </div>
+
+                        <!-- CPF -->
+                        <div>
+                            <label for="cpf">cpf:</label>
+                            <input type="text" id="cpf" name="cpf" placeholder="apenas números" required maxlength="11"
+                                pattern="\d*" />
+                        </div>
+
+                        <!-- E‑mail -->
+                        <div>
+                            <label for="email">e‑mail:</label>
+                            <input type="email" id="email" name="email" placeholder="insira seu melhor contato" required
+                                autocomplete="email" />
+                        </div>
+
+                        <!-- Telefone/WhatsApp -->
+                        <div>
+                            <label for="phone">telefone/whatsapp:</label>
+                            <input type="text" id="phone" name="phone" placeholder="(xx) 9 9999.9999" required
+                                pattern="\(\d{2}\) \d \d{4}\.\d{4}" />
+                        </div>
+
+                        <!-- Profissão -->
+                        <div>
+                            <label for="profession">profissão:</label>
+                            <input type="text" id="profession" name="profession"
+                                placeholder="marca, cargo, função ou empresa" required />
+                        </div>
+
+                        <!-- Mensagem -->
+                        <div>
+                            <label for="message">mensagem:</label>
+                            <textarea id="message" name="message"
+                                placeholder="conte um pouco sobre o que trouxe até aqui e o que você deseja a partir do seu contato com a clarfe"
+                                required></textarea>
+                        </div>
+
+                        <!-- Checkboxes -->
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="checkbox" id="terms" name="terms" required />
+                                li e aceito os termos e condições sobre <a href="./protecaodedados.html"
+                                    target="_blank">proteção de dados</a>
+                            </label>
+                            <label>
+                                <input type="checkbox" id="updates" name="updates" required />
+                                aceito receber atualizações
+                            </label>
+                        </div>
+
+                        <!-- Botão Enviar -->
+                        <button type="submit" id="submit-btn">enviar</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Seção FORMULÁRIO Mobile -->
+            <div class="mobile-only">
+                <!-- Mensagem de erro (oculta por padrão) -->
+                <div id="error-message-mobile" class="error-message">
+                    Preenchimento de todos os campos é obrigatório e termos devem ser aceitos.
+                </div>
+
+                <!-- Título e form em mobile (mesmas regras, apenas empilhado) -->
+                <div class="mobile-form">
+                    <form id="contact-form-mobile" action="https://formsubmit.co/contato.clarfe@gmail.com" method="POST"
+                        novalidate>
+                        <input type="hidden" name="_subject" value="Novo lead via site CLARFE" />
+                        <!-- <input type="hidden" name="_captcha" value="true" /> -->
+
+                        <!-- Nome Completo -->
+                        <div>
+                            <label for="full-name-m">nome completo:</label>
+                            <input type="text" id="full-name-m" name="fullName" placeholder="nome e sobrenome" required
+                                autocomplete="name" />
+                        </div>
+
+                        <!-- CPF -->
+                        <div>
+                            <label for="cpf-m">cpf:</label>
+                            <input type="text" id="cpf-m" name="cpf" placeholder="apenas números" required
+                                maxlength="11" pattern="\d*" />
+                        </div>
+
+                        <!-- E‑mail -->
+                        <div>
+                            <label for="email-m">e‑mail:</label>
+                            <input type="email" id="email-m" name="email" placeholder="insira seu melhor contato"
+                                required autocomplete="email" />
+                        </div>
+
+                        <!-- Telefone/WhatsApp -->
+                        <div>
+                            <label for="phone-m">telefone/whatsapp:</label>
+                            <input type="text" id="phone-m" name="phone" placeholder="(xx) 9 9999.9999" required
+                                pattern="\(\d{2}\) \d \d{4}\.\d{4}" />
+                        </div>
+
+                        <!-- Profissão -->
+                        <div>
+                            <label for="profession-m">profissão:</label>
+                            <input type="text" id="profession-m" name="profession"
+                                placeholder="marca, cargo, função ou empresa" required />
+                        </div>
+
+                        <!-- Mensagem -->
+                        <div>
+                            <label for="message-m">mensagem:</label>
+                            <textarea id="message-m" name="message"
+                                placeholder="conte um pouco sobre o que trouxe até aqui e o que você deseja a partir do seu contato com a clarfe"
+                                required></textarea>
+                        </div>
+
+                        <!-- Checkboxes -->
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="checkbox" id="terms-m" name="terms" required />
+                                li e aceito os termos e condições sobre <a href="./protecaodedados.html"
+                                    target="_blank">proteção de dados</a>
+                            </label>
+                            <label>
+                                <input type="checkbox" id="updates-m" name="updates" required />
+                                aceito receber atualizações
+                            </label>
+                        </div>
+
+                        <!-- Botão Enviar -->
+                        <button type="submit" id="submit-btn-mobile">enviar</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Mensagem de Sucesso (oculta por padrão) -->
+            <div id="success-message" class="success-message">
+                Mensagem enviada com sucesso! Em breve, nossa equipe entrará em contato com você!
+            </div>
+        </main>
+    </div>
+
+    <!-- Validação front‑end (JavaScript) -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Elementos desktop
+            const form = document.querySelector("#contact-form");
+            const errorMessage = document.querySelector("#error-message");
+
+            // Elementos mobile
+            const formMobile = document.querySelector("#contact-form-mobile");
+            const errorMessageMobile = document.querySelector("#error-message-mobile");
+
+            // Mensagem de sucesso
+            const successMessage = document.querySelector("#success-message");
+
+            // Função para exibir mensagem de erro
+            function showError(isMobile) {
+                if (isMobile) errorMessageMobile.style.display = "block";
+                else errorMessage.style.display = "block";
+            }
+
+            // Função para ocultar mensagem de erro
+            function clearError(isMobile) {
+                if (isMobile) errorMessageMobile.style.display = "none";
+                else errorMessage.style.display = "none";
+            }
+
+            // Função para exibir mensagem de sucesso e ocultar formulários
+            function showSuccess() {
+                document.querySelector(".desktop-only").style.display = "none";
+                document.querySelector(".mobile-only").style.display = "none";
+                successMessage.style.display = "block";
+            }
+
+            // Validação dos campos
+            function validateFields(formElement, isMobile) {
+                clearError(isMobile);
+
+                // Seleciona todos os campos de texto/textarea dentro do form
+                const inputs = formElement.querySelectorAll("input[type='text'], input[type='email'], textarea");
+                const checkTerms = formElement.querySelector("input[name='terms']");
+                const checkUpdates = formElement.querySelector("input[name='updates']");
+
+                for (let input of inputs) {
+                    if (!input.value.trim()) {
+                        showError(isMobile);
+                        return false;
+                    }
+                }
+
+                if (!checkTerms.checked || !checkUpdates.checked) {
+                    showError(isMobile);
+                    return false;
+                }
+
+                return true;
+            }
+
+            // Evento submit desktop
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                if (validateFields(form, false)) {
+                    showSuccess();
+                    // Deixe o form ser enviado normalmente (Formsubmit.co)
+                    form.submit();
+                }
+            });
+
+            // Evento submit mobile
+            formMobile.addEventListener("submit", function (e) {
+                e.preventDefault();
+                if (validateFields(formMobile, true)) {
+                    showSuccess();
+                    formMobile.submit();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

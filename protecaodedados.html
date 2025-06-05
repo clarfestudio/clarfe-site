@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Meta tags para SEO e responsividade -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CLARFE Studio – Política de Proteção de Dados</title>
+    <meta name="description"
+        content="Política de Proteção de Dados Pessoais da CLARFE Studio – Transparência, segurança e privacidade dos seus dados conforme LGPD." />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./Favicon/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="./Favicon/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./Favicon/apple-touche-icon.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="./Favicon/favicon-96x96.png" />
+    <link rel="manifest" href="./Favicon/web-app-manifest-192x192.png" />
+
+    <!-- Definição das fontes (Helvetica) -->
+    <style>
+        @font-face {
+            font-family: "Helvetica";
+            src: url("./Fonts/Helvetica/Helvetica.ttf") format("truetype");
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: "Helvetica";
+            src: url("./Fonts/Helvetica-Oblique/Helvetica-Oblique.ttf") format("truetype");
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: "Helvetica";
+            src: url("./Fonts/Helvetica-Bold/Helvetica-Bold.ttf") format("truetype");
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: "Helvetica";
+            src: url("./Fonts/Helvetica-BoldOblique/Helvetica-BoldOblique.ttf") format("truetype");
+            font-weight: 700;
+            font-style: italic;
+        }
+    </style>
+
+    <!-- Estilos principais -->
+    <style>
+        /* === Reset e configurações gerais === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100vh;
+            font-family: "Helvetica", sans-serif;
+            background-color: #FFFFFF;
+            color: #1A1A1A;
+            overscroll-behavior: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Cursor personalizado (aplicado apenas em desktop) */
+        @media (min-width: 769px) {
+            body {
+                cursor: url("./iconecursor.cur"), auto;
+            }
+        }
+
+        /* === Container principal === */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* === Cabeçalho (logo, menu, instagram) === */
+        header {
+            width: 100%;
+            max-width: 1920px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        nav a.menu-item {
+            font-family: "Helvetica", sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #1A1A1A;
+            transition: color 0.2s ease-in-out;
+        }
+
+        nav a.menu-item:hover {
+            color: rgba(0, 0, 0, 0.3);
+            /* cinza 30% no hover */
+        }
+
+        .social-icon img {
+            height: 24px;
+            width: 24px;
+        }
+
+        /* === Conteúdo proteção de dados === */
+        main.content {
+            width: 100%;
+            max-width: 1200px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        /* === Seção de introdução (título + parágrafo) === */
+        .intro-section {
+            display: flex;
+            gap: 4rem;
+        }
+
+        .intro-section .left-col {
+            flex-shrink: 0;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .intro-section .left-col h1 {
+            font-family: "Helvetica", sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            margin-top: -1rem;
+            /* alinha o rodapé do título com o topo do texto */
+        }
+
+        .intro-section .right-col p {
+            font-family: "Helvetica", sans-serif;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            letter-spacing: -0.5px;
+            text-align: justify;
+        }
+
+        .intro-section .right-col p strong {
+            font-weight: 700;
+            letter-spacing: normal;
+        }
+
+        /* === Seções numeradas (1 a 7) === */
+        .section {
+            display: flex;
+            gap: 4rem;
+        }
+
+        .section .left-col {
+            flex-shrink: 0;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section .left-col .section-number {
+            font-family: "Helvetica", sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section .left-col .section-title {
+            font-family: "Helvetica", sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .section .right-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .section .right-col p,
+        .section .right-col ul {
+            font-family: "Helvetica", sans-serif;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            letter-spacing: -0.5px;
+            text-align: justify;
+        }
+
+        .section .right-col ul {
+            margin-left: 1rem;
+            list-style: disc;
+        }
+
+        .section .right-col p strong {
+            font-weight: 700;
+            letter-spacing: normal;
+        }
+
+        /* === Responsividade === */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem 1.5rem;
+            }
+
+            nav {
+                margin-top: 1rem;
+                gap: 1.5rem;
+            }
+
+            main.content {
+                padding: 1.5rem;
+                gap: 2rem;
+            }
+
+            .intro-section,
+            .section {
+                flex-direction: column;
+            }
+
+            .intro-section .left-col,
+            .section .left-col {
+                width: auto;
+            }
+
+            .intro-section .left-col h1 {
+                font-size: 1.75rem;
+                margin-top: 0;
+                /* no mobile, exibe normalmente */
+            }
+
+            .intro-section .right-col p,
+            .section .right-col p,
+            .section .right-col ul {
+                font-size: 0.975rem;
+                line-height: 1.4rem;
+                letter-spacing: -0.5px;
+            }
+
+            .section .left-col .section-number {
+                font-size: 1.15rem;
+            }
+
+            .section .left-col .section-title {
+                font-size: 0.975rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header>
+            <div class="logo">
+                <a href="./index.html"><img src="./CLARFEStudio_Logotipo.svg" alt="Logo CLARFE" /></a>
+            </div>
+            <nav>
+                <a href="./sobre.html" class="menu-item">sobre</a>
+                <a href="./serviços.html" class="menu-item">serviços</a>
+                <a href="./contato.html" class="menu-item">contato</a>
+            </nav>
+            <div class="social-icon">
+                <a href="https://www.instagram.com/clarfestudio/" target="_blank" rel="noopener">
+                    <img src="./instagram.svg" alt="Instagram CLARFE" />
+                </a>
+            </div>
+        </header>
+
+        <!-- Conteúdo principal -->
+        <main class="content">
+            <!-- Seção de Introdução -->
+            <div class="intro-section">
+                <div class="left-col">
+                    <h1>
+                        Política de<br />
+                        Proteção de<br />
+                        Dados Pessoais
+                    </h1>
+                </div>
+                <div class="right-col">
+                    <p>
+                        A <strong>CLARFE Agência de Marketing Digital</strong>, comprometida com a transparência, a
+                        segurança e a
+                        privacidade de
+                        seus usuários, disponibiliza esta Política de Proteção de Dados para informar como seus dados
+                        pessoais são
+                        coletados, utilizados, armazenados e protegidos, em conformidade com a <strong>Lei Geral de
+                            Proteção de
+                            Dados Pessoais (LGPD – Lei nº 13.709/2018)</strong> e suas atualizações até 2025.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Seção 1 -->
+            <div class="section">
+                <div class="left-col">
+                    <div class="section-number">1.</div>
+                    <div class="section-title">Dados Pessoais<br />Coletados</div>
+                </div>
+                <div class="right-col">
+                    <p>Ao preencher nosso formulário de contato, coletamos os seguintes dados pessoais:</p>
+                    <ul>
+                        <li>Nome completo;</li>
+                        <li>CPF;</li>
+                        <li>E‑mail;</li>
+                        <li>Telefone e WhatsApp;</li>
+                        <li>Profissão;</li>
+                        <li>Mensagem enviada com o motivo do contato;</li>
+                    </ul>
+                    <p>Esses dados são fornecidos voluntariamente por você e são essenciais para que possamos atendê‑lo
+                        de forma
+                        adequada.</p>
+                </div>
+            </div>
+
+            <!-- Seção 2 -->
+            <div class="section">
+                <div class="left-col">
+                    <div class="section-number">2.</div>
+                    <div class="section-title">Finalidade do<br />Tratamento</div>
+                </div>
+                <div class="right-col">
+                    <p>Os dados informados serão utilizados para os seguintes fins:</p>
+                    <ul>
+                        <li>Entrar em contato com você por meio de nossa equipe comercial, para atendimento a
+                            solicitações de
+                            orçamento, propostas e esclarecimentos sobre nossos serviços;</li>
+                        <li>Enviar comunicações relacionadas a nossos serviços, incluindo <strong>e‑mails,
+                                mensagens via WhatsApp, atualizações, ofertas, conteúdos informativos e ações comerciais
+                                e de
+                                marketing</strong>;</li>
+                        <li>Aprimorar nossa comunicação com você, de forma personalizada, com base em seu interesse
+                            demonstrado;</li>
+                        <li>Cumprimento de obrigações legais ou regulatórias, quando aplicável.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Seção 3 -->
+            <div class="section">
+                <div class="left-col">
+                    <div class="section-number">3.</div>
+                    <div class="section-title">Base Legal para<br />Tratamento</div>
+                </div>
+                <div class="right-col">
+                    <p>O tratamento de seus dados pessoais está fundamentado nas seguintes bases legais previstas na
+                        LGPD:</p>
+                    <ul>
+                        <li><strong>Consentimento do titular</strong>, fornecido de forma livre, informada e inequívoca;
+                        </li>
+                        <li><strong>Legítimo interesse da CLARFE</strong>, no desenvolvimento de suas atividades
+                            comerciais e de
+                            marketing, respeitando os direitos e liberdades fundamentais do titular.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Seção 4 -->
+            <div class="section">
+                <div class="left-col">
+                    <div class="section-number">4.</div>
+                    <div class="section-title">Compartilhamento de<br />Dados</div>
+                </div>
+                <div class="right-col">
+                    <p><strong>A CLARFE não compartilha, vende ou cede seus dados a terceiros não autorizados.</strong>
+                        Eventualmente,
+                        seus dados podem ser compartilhados com prestadores de serviços contratados pela CLARFE,
+                        exclusivamente para fins de operação técnica, sempre sob obrigações contratuais de
+                        confidencialidade e
+                        segurança.</p>
+                </div>
+            </div>
+
+            <!-- Seção 5 -->
+            <div class="section">
+                <div class="left-col">
+                    <div class="section-number">5.</div>
+                    <div class="section-title">Armazenamento e<br />Segurança</div>
+                </div>
+                <div class="right-col">
+                    <p>Seus dados são armazenados em ambiente seguro, com acesso restrito e tecnologias apropriadas para
+                        proteger as
+                        informações contra acessos não autorizados, vazamentos, perda ou alteração. Os dados serão
+                        mantidos pelo
+                        prazo necessário ao cumprimento das finalidades acima ou até eventual revogação do
+                        consentimento.</p>
+                </div>
+            </div>
+
+            <!-- Seção 6 -->
+            <div class="section">
+                <div class="left-col">
+                    <div class="section-number">6.</div>
+                    <div class="section-title">Seus Direitos</div>
+                </div>
+                <div class="right-col">
+                    <p>Nos termos da LGPD, você tem direito a:</p>
+                    <ul>
+                        <li>Confirmar a existência de tratamento;</li>
+                        <li>Acessar, corrigir, atualizar ou solicitar a exclusão de seus dados;</li>
+                        <li>Revogar o consentimento a qualquer momento, sem prejuízo da legalidade do tratamento
+                            realizado
+                            anteriormente;</li>
+                        <li>Solicitar a portabilidade de dados e a limitação de seu uso;</li>
+                    </ul>
+                    <p>Para exercer seus direitos, entre em contato pelo e‑mail: <strong>clarfe@clarfe.com.br</strong>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Seção 7 -->
+            <div class="section">
+                <div class="left-col">
+                    <div class="section-number">7.</div>
+                    <div class="section-title">Consentimento</div>
+                </div>
+                <div class="right-col">
+                    <p>Ao enviar seus dados por meio deste site, você declara que leu, compreendeu e concorda com esta
+                        Política de
+                        Proteção de Dados, consentindo expressamente com o tratamento de suas informações nos termos
+                        aqui
+                        descritos.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
